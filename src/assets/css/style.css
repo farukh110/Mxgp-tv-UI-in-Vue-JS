@@ -1,0 +1,670 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  transition-property: color,background-color,border-color;
+  transition-duration: .5s;
+  will-change: color,background-color,border-color;
+}
+
+body{
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+  text-align: left;
+  background-color: #131217;
+  /* background-color: #1F2128; */
+  /* line-height: 1; */
+}
+/* h1,h2,h3,h4,h5,h6{
+  margin: 0;
+  font-family: Inter,sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+  text-align: left;
+  background-color: #131217;
+} */
+nav{
+  height: 3.75rem;
+  background-color: #131217;
+  display: flex;
+  position: relative;
+  padding: 0 1.875rem;
+  align-items: center;
+  justify-content: space-between;
+}
+nav .logo > img{
+  margin-top: .4375rem;
+}
+nav ul li{
+  padding: 0 .9375rem;
+  list-style: none;
+}
+nav ul li a{
+  color: #8f96a7;
+  font-size: 1rem;
+}
+nav ul li a:hover{
+  color: #fff;
+}
+.right-nav-side{
+  align-items: center;
+}
+.right-nav-side a{
+  line-height: 1;
+}
+.right-nav-side i{
+  color: #fff;
+  padding-left: 1.875rem;
+  margin-right: 15px;
+  font-size: 22px;
+
+}
+.main-container{
+  height: calc(100vh - 60px);
+}
+.allevents, .right-nav-side button{
+  cursor: pointer;
+  position: relative;
+  color: #fff;
+  border: none;
+  border-radius: .25rem;
+  display: inline-block;
+  padding: 0 .9375rem;
+  line-height: 2.75rem;
+  text-align: center;
+  text-decoration: none!important;
+  background-color: red;
+  white-space: nowrap;
+}
+.allevents{
+  height: 100%;
+}
+.up-coming-events{
+  background-color: #1a1a1a;
+  
+}
+.contain-upcoming-events{
+  max-width: 1160px;
+  margin: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+/* main container */
+.left-sidebar{
+  width: 25rem;
+  background-color: #191a1f;
+  padding: .9375rem 0 .9375rem .9375rem;
+  
+}
+.left-sidebar__header{
+  padding-right: .9375rem;
+}
+.left-sidebar__header .filter-btn{
+  margin-left: auto;
+  width: 2.75rem;
+  height: 2.75rem;
+  box-shadow: 0.1875rem 0.1875rem 0.5625rem #000;
+  position: relative;
+  border-radius: .25rem;
+  cursor: pointer;
+  background-color: #131217;
+}
+
+
+.left-sidebar__header .filter-btn::before{
+  content: "";
+  position: absolute;
+  background-image: url(https://www.mxgp-tv.com/assets/images/filter.svg);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: contain;
+  width: 1.25rem;
+  height: 1.125rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.clear-filter-btn img{
+  margin-right: 10px;
+}
+.clear-filter-btn{
+  color: #8f96a7;
+  background-color: #26272e;
+  opacity: .6;
+  padding: 13px 20px;
+  align-items: center;
+  max-width: 150px;
+  font-size: .8rem;
+  border-radius: .5rem;
+}
+.filter-title{
+  font-size: .75rem;
+  color: #8f96a7;
+  text-transform: uppercase;
+  margin-bottom: .625rem;
+}
+.contr-flag{
+  background-image: url('https://www.mxgp-tv.com/assets/images/country-flags/om.svg');
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: contain;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.items-ev{
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-height: calc(100vh - 306px);
+
+}
+.ev-container{
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 243px);
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.ev{
+  cursor: pointer;
+  height: 5.4375rem;
+  background-color: #131217;
+  align-items: center;
+  color: #fff;
+  
+}
+.ev-day{
+  overflow: hidden;
+  border-radius: .5rem;
+  background-color: #191a1f;
+  height: 100%;
+  position: relative;
+}
+.ev-details > div:first-child{
+  line-height: 1.1;
+}
+.ev-details{
+  width: calc(100% - 7.8125rem);
+}
+.ev-date{
+  width: 5rem;
+  
+}
+.ev-day-details .date h4{
+  position: relative;
+  padding-left: 1.125rem;
+}
+.ev-day-details .date h4::after{
+  content: "";
+    position: absolute;
+    width: .1875rem;
+    height: .875rem;
+    transform: skew(20deg);
+    background-color: #8f96a7;
+    top: 50%;
+    left: 0;
+    margin-top: -.4375rem;
+}
+.t_gray,.ev-date, .ev-details i{
+  color: #8f96a7;
+}
+.ev.selected{
+  background-color: #000;
+}
+/* scroll bar */
+.items-ev::-webkit-scrollbar,
+.ev-container::-webkit-scrollbar {
+  width: .3125rem;
+  background-color: #939ba8;
+}
+.items-ev::-webkit-scrollbar-thumb,
+.ev-container::-webkit-scrollbar-thumb {
+  background: red;
+}
+.main-sec-hero.mobile{
+  display: none;
+}
+.main-sec-hero .content{
+  background: transparent linear-gradient(180deg,rgba(19,18,23,0),rgba(19,18,23,.5019607843137255) 20%,#131217);
+  height: 270px;
+}
+.main-sec-hero{
+  background: url(https://wp-mxgp.streamamg.com/wp-content/uploads/START-LIMBURG-1-1.jpg);
+  background-size: cover;
+  background-position-y: -40px;
+
+}
+.main-sec-hero.mobile {
+  background-size: contain;
+  background-position-y: 0px;
+
+}
+.main-sec-hero.mobile .content {
+  background: transparent linear-gradient(180deg,rgba(19,18,23,0),rgba(19,18,23,.5019607843137255) 20%,#131217);
+  height: 95px;
+}
+main{
+  flex: 1;
+}
+.main-content-container{
+  
+  margin: auto;
+  margin-top: -9.375rem;
+    flex: 1;
+    z-index: 100;
+}
+.ev-img-container {
+  padding-top: 56%;
+  position: relative;
+  overflow: hidden;
+}
+.ev-img-container .img-ev{
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;                                                                    
+}
+.body-ev{
+  position: absolute;
+  z-index: 20;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: .625rem;
+}
+
+.body-ev::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  background: transparent linear-gradient(180deg,transparent,rgba(0,0,0,.7058823529411765)) 0 0;
+}
+.flag-btn{
+  position: absolute;
+  background-color: #131217;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  z-index: 50;
+  margin: .625rem;
+  padding: .375rem;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+.col-ev{
+    padding: .46875rem;
+    width: 100%;
+}
+.all-sponsors .content-sponsor div{
+  width: 20%;
+}
+.all-sponsors div img{
+  max-width: 6.25rem;
+  margin: auto;
+}
+footer{
+  background-color: #191a1f;
+}
+footer .links-imp{
+  column-count: 3;
+
+}
+footer .links-imp li a{
+  color: #8f96a7;
+  
+}
+footer .links-imp li{
+  line-height: 1.7;
+}
+footer .links-imp li a:hover{
+  color: #fff;
+}
+.bottom-footer{
+  background-color: #26272e;
+}
+.bottom-footer div{
+  color: #8f96a7;
+}
+.bottom-footer{
+  font-size: 14px;
+}
+/* mobile menu */
+.mobile-nav.close{
+  transition: .35s ease-in;
+  transform: translateX(100%);
+}
+.mobile-nav{
+  transition: .35s ease-in;
+  transform: translateX(0);
+}
+.mobile-nav-footer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.mobile-nav-footer a.login-reg, .mobile-nav-footer a.buy-now{
+  padding: 1rem;
+  /* display: block; */
+  text-align: center;
+  height: 60px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.mobile-nav-footer a.login-reg{
+  background-color: #000;
+}
+.mobile-nav-footer a.buy-now{
+  background-color: #ff0000;
+}
+.mobile-nav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+.cls-btn{
+  display: block;
+    top: .625rem;
+    left: 0;
+    position: absolute;
+}
+.mobile-nav-header{
+  height: 3.375rem;
+  background-color: #000;
+  display: flex;
+  position: relative;
+}
+.icon-cls {
+  background-image: url(https://www.mxgp-tv.com/assets/images/cross.svg);
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2.1875rem;
+  height: 2.1875rem;
+  z-index: 100;
+  background-color: #fff;
+  background-size: .75rem;
+  border-radius: 50%;
+  margin: .625rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+.menu-mobile-icon{
+  display: none;
+}
+.menu-mobile-icon {
+  
+  background-color: #131217;
+  cursor: pointer;
+  width: 2.75rem;
+  height: 3.75rem;
+  padding: 0 0 0 .9375rem;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto;
+}
+.menu-mobile-icon div{
+  height: .125rem;
+  background-color: #fff;
+  margin: .25rem 0;
+}
+.mobile-nav-content{
+  background-color: #131217;
+  height: calc(100vh - 54px);
+}
+.mobile-nav-content ul li a{
+  color: #8f96a7;
+  font-weight: 400;
+  font-size: 1.3125rem;
+}
+.mobile-nav-content ul li{
+  list-style: none;
+  padding: 1.25rem;
+  border-bottom: .0625rem solid #8f96a7;
+  text-align: center;
+}
+.lock-scroll{
+  overflow: hidden!important;
+}
+.slick-slide:focus{
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+/* baner-event-timer */
+.bg-red{
+  background-color: #ff0000;
+}
+.counts > div{
+  margin-right: 1rem;
+}
+.counts > div > span{
+  background-color: #ff0000;
+  color: #26272e;
+  max-width: 50px;
+  height: 45px;
+  font-size: 28px;
+  min-width: 50px;
+  text-align: center;
+  display: block;
+}
+.counts > div:not(:first-child) > span {
+  background-color: #afafaf;
+  text-align: center;
+}
+.counts div{
+  text-align: center;
+}
+.day{
+  background-color: #ff0000;
+  color: #26272e;
+  max-width: 50px;
+  height: 45px;
+  font-size: 28px;
+  text-align: center;
+}
+@media (min-width: 1280px) {
+  .col-ev
+  {
+    width: 50%;
+  }
+}
+@media (min-width: 1599px) {
+  .left-sidebar{
+    width: 22rem;
+  }
+
+}
+@media (min-width: 1600px){
+.col-ev
+  {
+    width: 33.3333333333%;
+  }
+}
+
+@media (min-width: 1920px){
+  .col-ev
+    {
+      width: 25%;
+    }
+}
+
+@media (min-width: 2560px){
+  .col-ev
+    {
+      width: 20%;
+    }
+  }
+  
+  
+@media (min-width: 3840px){
+  .col-ev
+    {
+      width: 16.6666666667%
+    }
+  }
+
+@media(max-width: 991px) {
+  nav ul, .right-nav-side{
+    display: none!important;
+  }
+  nav{
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .menu-mobile-icon{
+    display: flex;
+  }
+  .items-ev {
+    overflow: hidden;
+    height: auto;
+    max-height:100%;
+}
+  .header-main-content{
+    padding-top: 25px;
+  }
+  .main-content-container {
+    margin-top: 0;
+  }
+  .main-sec-hero.mobile{
+    display: block;
+  }
+  .main-sec-hero:not(.mobile){
+    display: none;
+  }
+  .main-sec-hero.mobile h1{
+    font-size: 1.875rem;
+    line-height: 1.2;
+  }
+  .ev-container{
+    flex-direction: row;
+    height: auto;
+    overflow: hidden;
+  }
+  .pair-event-filter{
+    padding-right: 1rem;
+  }
+  .ev{
+    width: 300px;
+  }
+  .main-container{
+    flex-wrap: wrap;
+  }
+  main.main,.left-sidebar{
+    width: 100%;
+    max-width: 100%
+  }
+  .main-container{
+    max-height: auto;
+    height: auto;
+  }
+}
+@media (max-width: 767px){
+  .ev-day-details .date h4 > *{
+    font-size: 16px!important;
+  }
+  .ev-location span{
+    font-size: 15px;
+  }
+  .body-ev h3{
+    font-size: 20px;
+  }
+  .header-main-content > div:first-child {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-right: .5rem;
+    padding-left: .5rem;
+  }
+  .all-sponsors .content-sponsor div{
+    width: 33%;
+  }
+  .contain-upcoming-events > div{
+    margin-bottom: 1rem;
+  }
+ 
+}
+@media (max-width: 575px){
+  
+  .all-sponsors .content-sponsor{
+    flex-wrap: wrap;
+  }
+  .all-sponsors .content-sponsor div{
+    width: 50%;
+  }
+  footer .flex.flex-wrap{
+    justify-content: center;
+  }
+
+  footer h3,.links-imp{
+    padding-left: .75rem;
+  }
+  .mobile-d-inline{
+    display: flex;
+  }
+ .nav-footer-links{
+   font-size: 12px;
+ }
+ .s-media-links{
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   width: 100%;
+  }
+  .follow-links-div{
+    width: 100%;
+    max-width: 100%;
+  }
+  .bottom-footer{
+    font-size: 12px;
+  }
+  .ev{
+    width: 270px;
+  }
+  .ev-date{
+    font-size: 80%;
+    width: 4.5rem;
+  }
+  .ev-date > *,   .ev-details > *{
+    font-size: 88%;
+    
+  }
+  
+  .ev-container
+  {
+    flex-direction: row;
+    height: auto;
+    overflow: auto;
+    display: block;
+    max-height: 300px;
+  }
+}
